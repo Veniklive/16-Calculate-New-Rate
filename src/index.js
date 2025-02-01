@@ -6,29 +6,24 @@
 
 function calculateNewWinnerRate(winnerRate, loserRate) {
   let difference = winnerRate - loserRate;
-  if (
-    !isNaN(winnerRate) &&
-    winnerRate >= 0 &&
-    !isNaN(loserRate) &&
-    loserRate >= 0
-  ) {
+  if (!isNaN(difference) && winnerRate >= 0 && loserRate >= 0) {
     switch (true) {
       case winnerRate === 0:
-        return loserRate;
+        return loserRate.toFixed(1);
       case difference >= 0 && difference <= 2:
-        return (winnerRate += 2);
+        return (winnerRate += 2).toFixed(1);
       case difference > 2 && difference < 20:
-        return ++winnerRate;
+        return (++winnerRate).toFixed(1);
       case difference >= 20:
-        return winnerRate;
+        return winnerRate.toFixed(1);
       case difference < 0:
-        return (winnerRate += (loserRate - winnerRate + 5) / 3);
+        return (winnerRate += (loserRate - winnerRate + 5) / 3).toFixed(1);
     }
   }
   return NaN;
 }
 
-let winnerRate = 50;
-let loserRate = 52.123;
+let winnerRate = 50.123;
+let loserRate = 13.123;
 
-console.log(Number(calculateNewWinnerRate(winnerRate, loserRate).toFixed(1)));
+console.log(Number(calculateNewWinnerRate(winnerRate, loserRate)));
