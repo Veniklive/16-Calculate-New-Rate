@@ -26,4 +26,4 @@ function calculateNewWinnerRate(winnerRate, loserRate) {
 let winnerRate = 50.123;
 let loserRate = 13.123;
 
-console.log(Number(calculateNewWinnerRate(winnerRate, loserRate)));
+console.log(calculateNewWinnerRate(winnerRate, loserRate));
